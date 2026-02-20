@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-width=1.0" />
+  <title>Life - Web Game</title>
+  <!-- Chargement Tailwind et nos styles -->
+  <link rel="stylesheet" href="/menu.css">
+</head>
+
+<body
+  class="bg-black text-white overflow-hidden w-screen h-screen m-0 p-0 font-sans selection:bg-fuchsia-300 selection:text-fuchsia-900 select-none">
+
+  <!-- Canvas Three.js en arrière-plan -->
+  <div id="game-canvas" class="absolute inset-0 z-0"></div>
+
+  <!-- UI: Menu d'accueil interactif -->
+  <div id="main-menu"
+    class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/50 backdrop-blur-md transition-opacity duration-700"
+    style="display: none; opacity: 0;">
+
+    <div class="mb-16 drop-shadow-2xl flex flex-col items-center">
+      <!-- Emplacement du logo avec fallback si l'image n'est pas encore là -->
+      <img src="/assets/logo.svg" alt="Life Logo"
+        class="h-48 w-auto object-contain hover:scale-105 transition-transform duration-500 ease-in-out"
+        onerror="this.src='https://via.placeholder.com/600x200?text=Life+Logo+Here';">
+    </div>
+
+    <div class="flex flex-col gap-6 w-96 relative z-20">
+      <!-- Bouton Start -->
+      <button id="start-btn"
+        class="group relative px-8 py-5 bg-gradient-to-r from-blue-700 via-purple-600 to-fuchsia-600 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(192,38,211,0.5)] transition-all duration-300 hover:shadow-[0_0_50px_rgba(192,38,211,0.9)] hover:-translate-y-2 focus:outline-none">
+        <div class="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-colors duration-300"></div>
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[length:200%_200%] animate-pulse bg-gradient-to-r from-pink-500 to-violet-500 blur-xl -z-10 transition-opacity">
+        </div>
+        <span
+          class="relative text-2xl font-extrabold tracking-[0.2em] font-sans uppercase z-10 drop-shadow-md group-hover:text-white text-gray-100">Start
+          Game</span>
+      </button>
+
+      <!-- Bouton Options -->
+      <button id="options-btn"
+        class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 rounded-2xl backdrop-blur-md transition-all duration-300 font-bold tracking-widest uppercase text-gray-300 hover:text-white hover:-translate-y-1 focus:outline-none shadow-lg shadow-black/50">
+        Options
+      </button>
+    </div>
+
+    <!-- Pied de page -->
+    <div class="absolute bottom-8 text-white/40 text-sm tracking-wider font-light">
+      © 2026 mCompany • Life v0.1
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
